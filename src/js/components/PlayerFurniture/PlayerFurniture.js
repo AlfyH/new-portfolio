@@ -59,6 +59,18 @@ export default ({
           console.log(player.timer);
         }}
       />
+      <Button
+        text="Info"
+        style={{
+          width: "3vw",
+          height: "3vw",
+          gridArea: "button3",
+        }}
+        onClick={() => {
+          $("#component-modal").show();
+          console.log('open modal');
+        }}
+      />
       <PlayerBar
         min={0}
         max={($("#inner-wrapper").width() * 2) / 3}
@@ -67,7 +79,9 @@ export default ({
         onScrubEnd={handleScrubEnd}
         onScrubChange={handleScrubChange}
       />
-      <span style={{ gridArea: "playduration" }}>{`0${getPlayerProgress()} / 01:00`.replace(".", ":")}</span>
+      <span style={{ gridArea: "playduration" }}>
+        {`0${getPlayerProgress()} / 01:00`.replace(".", ":")}
+      </span>
     </div>
   );
 };

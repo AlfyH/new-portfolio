@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap%22%20rel=%22stylesheet");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap%22%20rel=%22stylesheet");
 body {
   margin: 0;
   padding: 0;
@@ -39,15 +41,29 @@ code {
   display: none;
 }
 
-.one {
-  background: red;
+.font-header {
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 4em;
+  color: #b0a99f;
 }
 
-.two {
+.font-subtitle {
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 3em;
+  color: #b0a99f;
+}
+
+.page-about {
   background: green;
 }
 
-.three {
+.page-home {
+  background: #222526;
+}
+
+.page-portfolio {
   background: blue;
 }
 
@@ -100,9 +116,9 @@ code {
   position: absolute;
   bottom: 20vh;
   display: grid;
-  grid-template-columns: 10vw 10vw 40vw 20vw;
+  grid-template-columns: 5vw 5vw 5vw 40vw 25vw;
   grid-template-rows: auto;
-  grid-template-areas: "button1 button2 playerbar playduration";
+  grid-template-areas: "button1 button2 button3 playerbar playduration";
 }
 
 .component-button {
@@ -123,6 +139,19 @@ code {
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+}
+
+.component-modal {
+  background: black;
+  color: white;
+  opacity: 0.9;
+  z-index: 2;
+  height: 90%;
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /*# sourceMappingURL=index.css.map */
