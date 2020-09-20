@@ -51,15 +51,6 @@ code {
   background: blue;
 }
 
-.player-bar-wrapper {
-  height: 4px;
-  width: 80vw;
-  left: 10%;
-  margin: auto;
-  position: absolute;
-  bottom: 20vh;
-}
-
 .scrubber {
   display: block;
   position: relative;
@@ -98,6 +89,28 @@ code {
   top: 50%;
   width: 12px;
   height: 12px;
+}
+
+.player-furniture-wrapper {
+  height: 4px;
+  width: 80vw;
+  left: 10%;
+  margin: auto;
+  position: absolute;
+  bottom: 20vh;
+}
+
+.component-button {
+  background: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative;
+}
+
+.component-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import $ from 'jquery';
-import PlayerBar from '../components/PlayerBar/PlayerBar';
+
+import PlayerFurniture from '../components/PlayerFurniture/PlayerFurniture';
 
 export default ({ children }) => {
   const [ value, setValue ] = useState(0);
@@ -20,24 +21,39 @@ export default ({ children }) => {
     setState('Scrub Change')
   }
 
+  const updateBarOnScroll = useCallback(() => {
+    console.log("screen position", $("#outer-wrapper").scrollTop());
+    setValue($("#outer-wrapper").scrollTop());
+  }, []);
+
   useEffect(() => {
-    console.log('state', state);
-    console.log('value', value);
+    document
+      .getElementById("outer-wrapper")
+      .addEventListener("scroll", updateBarOnScroll);
+
+    return () =>
+      document
+        .getElementById("outer-wrapper")
+        .removeEventListener("scroll", updateBarOnScroll);
+  }, [updateBarOnScroll]);
+
+  useEffect(() => {
+    // console.log('state', state);
+    // console.log("screen position", getScreenPosition());
+    // console.log("screen width", getScreenWidth());
+    // console.log("bar value", value);
+    // console.log("screen percentage", `0${(getScreenPosition() / getScreenWidth()).toFixed(2)} / 01.00`.replace('.', ':'));
   }, [state, value]);
 
   return (
     <div>
       {children}
-      <div className="player-bar-wrapper">
-        <PlayerBar
-          min={0}
-          max={($("#inner-wrapper").width() * 2) / 3}
-          value={value}
-          onScrubStart={handleScrubStart}
-          onScrubEnd={handleScrubEnd}
-          onScrubChange={handleScrubChange}
-        />
-      </div>
+      <PlayerFurniture
+        handleScrubStart={handleScrubStart}
+        handleScrubEnd={handleScrubEnd}
+        handleScrubChange={handleScrubChange}
+        value={value}
+      />
     </div>
   );
 };
