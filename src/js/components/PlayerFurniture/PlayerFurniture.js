@@ -2,7 +2,11 @@ import React from "react";
 import $ from 'jquery';
 import PlayerBar from '../PlayerBar/PlayerBar';
 import Button from '../Button/Button';
-import { getScreenPosition, getScreenWidth } from "../../helpers";
+import { getScreenPosition, getScreenWidth, setScreenPosition } from "../../helpers";
+
+const player = {
+  timer: null
+}
 
 export default ({
   handleScrubStart,
@@ -19,21 +23,40 @@ export default ({
         return playerProgress;
     };
 
-    console.log("screen position", getScreenPosition());
-    console.log("screen width", getScreenWidth());
-    console.log("bar value", value);
-    console.log(
-      "screen percentage",
-      `0${getPlayerProgress()} / 01.00`.replace(".", ":")
-    );
-
   return (
     <div className="player-furniture-wrapper">
-      <Button 
+      <Button
         text="Play"
         style={{
-          width:"3vw",
-          height:"3vw"
+          width: "3vw",
+          height: "3vw",
+          gridArea: "button1",
+        }}
+        onClick={() => {
+          let interval = getScreenPosition();
+          if (player.timer) {
+            clearInterval(player.timer);
+            delete player.timer;
+          }
+          player.timer = setInterval(() => {
+            setScreenPosition(interval);
+            interval = interval + 10;
+          }, 100);
+        }}
+      />
+      <Button
+        text="Pause"
+        style={{
+          width: "3vw",
+          height: "3vw",
+          gridArea: "button2",
+        }}
+        onClick={() => {
+          clearInterval(player.timer);
+          if (player.timer) {
+            delete player.timer;
+          }
+          console.log(player.timer);
         }}
       />
       <PlayerBar
@@ -44,7 +67,7 @@ export default ({
         onScrubEnd={handleScrubEnd}
         onScrubChange={handleScrubChange}
       />
-      {`0${getPlayerProgress()} / 01:00`.replace(".", ":")}
+      <span style={{ gridArea: "playduration" }}>{`0${getPlayerProgress()} / 01:00`.replace(".", ":")}</span>
     </div>
   );
 };

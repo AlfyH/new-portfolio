@@ -56,6 +56,7 @@ code {
   position: relative;
   user-select: none;
   touch-action: none;
+  grid-area: playerbar;
 }
 
 .scrubber * {
@@ -98,6 +99,10 @@ code {
   margin: auto;
   position: absolute;
   bottom: 20vh;
+  display: grid;
+  grid-template-columns: 10vw 10vw 40vw 20vw;
+  grid-template-rows: auto;
+  grid-template-areas: "button1 button2 playerbar playduration";
 }
 
 .component-button {
@@ -107,6 +112,13 @@ code {
 }
 
 .component-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.component-image {
   position: absolute;
   top: 50%;
   left: 50%;
