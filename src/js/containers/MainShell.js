@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useCallback} from 'react';
+import Modal from '../components/Modal/Modal';
 import $ from 'jquery';
 
 import PlayerFurniture from '../components/PlayerFurniture/PlayerFurniture';
@@ -47,6 +48,7 @@ export default ({ children }) => {
 
   return (
     <div>
+      <Modal />
       {children}
       <PlayerFurniture
         handleScrubStart={handleScrubStart}

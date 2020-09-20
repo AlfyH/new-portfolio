@@ -6,8 +6,8 @@
   position: absolute;
   bottom: 20vh;
   display: grid;
-  grid-template-columns: 10vw 10vw 40vw 20vw;
+  grid-template-columns: 5vw 5vw 5vw 40vw 25vw;
   grid-template-rows: auto;
   grid-template-areas: 
-    "button1 button2 playerbar playduration";
+    "button1 button2 button3 playerbar playduration";
 }

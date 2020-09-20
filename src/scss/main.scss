@@ -42,16 +42,22 @@ code {
   display:none;
 }
 
-.one {
-   background: red;
-}
-.two {
-   background: green;
-}
-.three {
-   background: blue;
-}
+//Styles
+@import './colours.scss';
+@import './typography.scss';
 
+//Pages
+@import '../js/pages/About/About.scss';
+@import '../js/pages/Home/Home.scss';
+@import '../js/pages/Portfolio/Portfolio.scss';
+
+//Components
 @import '../js/components/PlayerBar/PlayerBar.scss';
 @import '../js/components/PlayerFurniture/PlayerFurniture.scss';
 @import '../js/components/Button/Button.scss';
+@import '../js/components/Modal/Modal.scss';
+@import '../js/components/Image/Image.scss';
+@import '../js/components/Text/Text.scss';
+
+//Responsive
+@import './responsive.scss';
