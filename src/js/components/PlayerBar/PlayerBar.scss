@@ -1,0 +1,81 @@
+.player-bar-wrapper {
+  height: 4px;
+  width: 80vw;
+  left: 10%;
+  margin: auto;
+  position: absolute;
+  bottom: 20vh;
+}
+
+.scrubber {
+  display: block;
+  position: relative;
+  user-select: none;
+  touch-action: none;
+}
+.scrubber * {
+  user-select: none;
+}
+.scrubber .bar {
+  background: rgba(100, 100, 100, 0.5);
+  position: relative;
+  transition: height 0.2s linear, width 0.2s linear;
+  top: 50%;
+  left: 0;
+  // transform: translateY(-50%);
+  height: 6px;
+  width: 100%;
+}
+
+.scrubber .bar__progress {
+  position: absolute;
+  background: #019afd;
+  height: 100%;
+}
+
+.scrubber .bar__thumb {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border-radius: 10px;
+  background: #019afd;
+  transition: height 0.2s linear, width 0.2s linear;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  width: 12px;
+  height: 12px;
+}
+
+// .player-bar {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   z-index: 10;
+
+//   background-color: black;
+//   width: 200px;
+//   height: 6.75px;
+//   display: block;
+// }
+
+// .progress-bar {
+//   background-color: yellow;
+//   height: 100%;
+//   display: block;
+//   position: absolute;
+//   z-index: 10;
+// };
+
+// .progress-thumb {
+//   top: 50%;
+//   width: 33px;
+//   height: 33px;
+//   border: 3px solid black;
+//   border-radius: 21px;
+//   background-color: grey;
+//   display: block;
+//   position: absolute;
+//   transform: translate(-50%, -50%);
+//   z-index: 10;
+// }

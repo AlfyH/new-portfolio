@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.page {
+  width: 100vw;
+  height: 100vh;
+}
+
+.outer-wrapper {
+  width: 100vh;
+  height: 100vw;
+  transform: rotate(-90deg) translateX(-100vh);
+  transform-origin: top left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.inner-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 300vw;
+  transform: rotate(90deg) translateY(-100vh);
+  transform-origin: top left;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.one {
+  background: red;
+}
+
+.two {
+  background: green;
+}
+
+.three {
+  background: blue;
+}
+
+.player-bar-wrapper {
+  height: 4px;
+  width: 80vw;
+  left: 10%;
+  margin: auto;
+  position: absolute;
+  bottom: 20vh;
+}
+
+.scrubber {
+  display: block;
+  position: relative;
+  user-select: none;
+  touch-action: none;
+}
+
+.scrubber * {
+  user-select: none;
+}
+
+.scrubber .bar {
+  background: rgba(100, 100, 100, 0.5);
+  position: relative;
+  transition: height 0.2s linear, width 0.2s linear;
+  top: 50%;
+  left: 0;
+  height: 6px;
+  width: 100%;
+}
+
+.scrubber .bar__progress {
+  position: absolute;
+  background: #019afd;
+  height: 100%;
+}
+
+.scrubber .bar__thumb {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border-radius: 10px;
+  background: #019afd;
+  transition: height 0.2s linear, width 0.2s linear;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  width: 12px;
+  height: 12px;
+}
+
+/*# sourceMappingURL=index.css.map */
