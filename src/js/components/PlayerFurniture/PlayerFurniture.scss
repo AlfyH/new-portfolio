@@ -1,13 +1,37 @@
 .player-furniture-wrapper {
-  height: 4px;
-  width: 80vw;
-  left: 10%;
-  margin: auto;
-  position: absolute;
-  bottom: 20vh;
-  display: grid;
-  grid-template-columns: 5vw 5vw 5vw 40vw 25vw;
-  grid-template-rows: auto;
-  grid-template-areas: 
-    "button1 button2 button3 playerbar playduration";
+  height: $PLAYER_FURNITURE_HEIGHT;
+  background-color: $PLAYER_FURNITURE_BACKGROUND;
+  width: 100vw;
+  position: relative;
+  bottom: -webkit-calc(-100% + 265px); //$PLAYER_FURNITURE_HEIGHT
+
+  .rabbit-logo-wrapper {
+    position: absolute;
+    height: 253px;
+    width: 253px;
+    bottom: 126px;
+    left: 50%;
+    margin-left: -126.5px;
+  }
+
+  .rabbit-logo {
+    height: 253px;
+    width: 253px;
+  }
+
+  .buttons-wrapper {
+    position: absolute;
+    bottom: 133px;
+    width: 80vw;
+    left: 50%;
+    margin-left: -40vw;
+  }
+
+  .player-bar-wrapper {
+    position: absolute;
+    bottom: 60px;
+    width: 80vw;
+    left: 50%;
+    margin-left: -40vw;
+  }
 }

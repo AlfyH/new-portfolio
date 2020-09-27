@@ -1,19 +1,11 @@
 import React from "react";
-import $ from 'jquery';
-import PlayerBar from '../PlayerBar/PlayerBar';
-import Button from '../Button/Button';
-import { getScreenPosition, getScreenWidth, setScreenPosition } from "../../helpers";
-
-const player = {
-  timer: null
-}
+import Image from '../Image/Image';
+import { getScreenPosition, getScreenWidth, images } from "../../helpers";
 
 export default ({
-  handleScrubStart,
-  handleScrubEnd,
-  handleScrubChange,
-  value
+  children
   }) => {
+    const [ playBtn, infoBtn, gitBtn, linkedinBtn, playerBar ] = children;
     const getPlayerProgress = () => {
       let playerProgress = `0:00`;
 
@@ -25,63 +17,19 @@ export default ({
 
   return (
     <div className="player-furniture-wrapper">
-      <Button
-        text="Play"
-        style={{
-          width: "3vw",
-          height: "3vw",
-          gridArea: "button1",
-        }}
-        onClick={() => {
-          let interval = getScreenPosition();
-          if (player.timer) {
-            clearInterval(player.timer);
-            delete player.timer;
-          }
-          player.timer = setInterval(() => {
-            setScreenPosition(interval);
-            interval = interval + 10;
-          }, 100);
-        }}
-      />
-      <Button
-        text="Pause"
-        style={{
-          width: "3vw",
-          height: "3vw",
-          gridArea: "button2",
-        }}
-        onClick={() => {
-          clearInterval(player.timer);
-          if (player.timer) {
-            delete player.timer;
-          }
-          console.log(player.timer);
-        }}
-      />
-      <Button
-        text="Info"
-        style={{
-          width: "3vw",
-          height: "3vw",
-          gridArea: "button3",
-        }}
-        onClick={() => {
-          $("#component-modal").show();
-          console.log('open modal');
-        }}
-      />
-      <PlayerBar
-        min={0}
-        max={($("#inner-wrapper").width() * 2) / 3}
-        value={value}
-        onScrubStart={handleScrubStart}
-        onScrubEnd={handleScrubEnd}
-        onScrubChange={handleScrubChange}
-      />
-      <span style={{ gridArea: "playduration" }}>
-        {`0${getPlayerProgress()} / 01:00`.replace(".", ":")}
-      </span>
+      <div className="rabbit-logo-wrapper">
+        <Image src={images.rabbit_desktop} className="rabbit-logo" />
+      </div>
+      <div className="buttons-wrapper">
+        {playBtn}
+        {infoBtn}
+        {gitBtn}
+        {linkedinBtn}
+      </div>
+      <div className="player-bar-wrapper">
+        {playerBar}
+        <span>{`0${getPlayerProgress()} / 01:00`.replace(".", ":")}</span>
+      </div>
     </div>
   );
 };
