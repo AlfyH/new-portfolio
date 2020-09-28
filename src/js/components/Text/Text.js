@@ -1,13 +1,10 @@
 import React from "react";
 
 export default ({ text, className, style, id }) => {
+  const finalClassName = `component-text ${className}`
   return (
-    <span
-      className={className}
-      style={style}
-      id={id}
-    >
+    <div className={finalClassName} style={style} id={id}>
       {text}
-    </span>
+    </div>
   );
 };

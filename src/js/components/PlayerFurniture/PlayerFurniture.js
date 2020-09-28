@@ -1,5 +1,6 @@
 import React from "react";
 import Image from '../Image/Image';
+import Text from "../Text/Text";
 import { getScreenPosition, getScreenWidth, images } from "../../helpers";
 
 export default ({
@@ -28,7 +29,13 @@ export default ({
       </div>
       <div className="player-bar-wrapper">
         {playerBar}
-        <span>{`0${getPlayerProgress()} / 01:00`.replace(".", ":")}</span>
+        <Text
+          className="font-player-bar"
+          text={`0${getPlayerProgress()} / 01:00`.replace(".", ":")}
+        />
+        {/* <div className="player-bar-duration">
+          {`0${getPlayerProgress()} / 01:00`.replace(".", ":")}
+        </div> */}
       </div>
     </div>
   );

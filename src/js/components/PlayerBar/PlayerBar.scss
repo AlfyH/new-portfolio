@@ -1,26 +1,22 @@
 .scrubber {
-  display: block;
-  position: relative;
-  user-select: none;
+  width: 85%;
+  float: left;
   touch-action: none;
 }
 .scrubber * {
   user-select: none;
 }
 .scrubber .bar {
-  background: rgba(100, 100, 100, 0.5);
+  background: $PLAYER_BAR;
   position: relative;
-  transition: height 0.2s linear, width 0.2s linear;
-  top: 50%;
-  left: 0;
-  // transform: translateY(-50%);
-  height: 6px;
+  height: $PLAYER_BAR_HEIGHT;
   width: 100%;
+  margin-top: 5.6px;
 }
 
 .scrubber .bar__progress {
   position: absolute;
-  background: #019afd;
+  background: $PLAYER_BAR_PROGRESS;
   height: 100%;
 }
 
@@ -28,11 +24,16 @@
   position: absolute;
   width: 0px;
   height: 0px;
-  border-radius: 10px;
-  background: #019afd;
+  border-radius: 20px;
+  background: $PLAYER_BAR_THUMB;
   transition: height 0.2s linear, width 0.2s linear;
   transform: translate(-50%, -50%);
   top: 50%;
-  width: 12px;
-  height: 12px;
+  width: $PLAYER_BAR_THUMB_HEIGHT;
+  height: $PLAYER_BAR_THUMB_HEIGHT;
+}
+
+.player-bar-duration {
+  float: right;
+  height: 18px;
 }

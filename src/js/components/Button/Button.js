@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from '../Image/Image';
+import Text from '../Text/Text';
 
 export default ({ className , style, text, image, onClick }) =>{
   return (
@@ -8,7 +9,9 @@ export default ({ className , style, text, image, onClick }) =>{
       style={style}
       onClick={() => onClick()}
       >
-      <span className="component-text">{text}</span>
+      <Text 
+      text={text}
+      />
       <Image 
         className="component-image"
         src={image} 
