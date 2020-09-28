@@ -1,15 +1,20 @@
 import React from "react";
 
-export default ({ style, src , alt='', onLoad, onError, className}) => {
+export default ({ src , alt='', onLoad, onError, className}) => {
+
+  if (!src) {
+    return null;
+  }
+  
   return (
-    <div className="component-image" style={style}>
+    <>
       <img 
         src={src}
         alt={alt}
         onLoad={onLoad}
         onError={onError}
-        className={className}
+        className={`component-image ${className}`}
       />
-    </div>
+    </>
   );
 };

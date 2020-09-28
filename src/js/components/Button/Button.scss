@@ -1,19 +1,22 @@
 .component-button {
-  background: rgba(0,0,0,0.3);
   text-align: center;
   position: relative;
+  float: left;
+  width: $ICON_HEIGHT;
+  height: $ICON_HEIGHT;
 };
-
-.component-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-}
 
 .component-image {
   position: absolute;
+  width: 75px;
+  height: 75px;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
+
+.other-buttons {
+  float: right;
+  margin-left: 30px;
+}
+

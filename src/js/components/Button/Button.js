@@ -1,14 +1,22 @@
 import React from 'react';
+import Image from '../Image/Image';
+import Text from '../Text/Text';
 
-export default ({ style, text, image, onClick }) =>{
+export default ({ className , style, text, image, onClick }) =>{
   return (
     <div 
-      className="component-button" 
+      className={`component-button ${className}`}
       style={style}
       onClick={() => onClick()}
       >
-      <span className="component-text">{text}</span>
-      <img className="component-image" src={image} alt={''} />
+      <Text 
+      text={text}
+      />
+      <Image 
+        className="component-image"
+        src={image} 
+        alt={''} 
+      />
     </div>
   );
 };

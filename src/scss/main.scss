@@ -18,6 +18,12 @@ code {
   height: 100vh;
 }
 
+.app-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
 .outer-wrapper {
   width: 100vh;
   height: 100vw;
@@ -43,6 +49,7 @@ code {
 }
 
 //Styles
+@import './dimensions.scss';
 @import './colours.scss';
 @import './typography.scss';
 
