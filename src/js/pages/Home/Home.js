@@ -3,7 +3,7 @@ import Text from '../../components/Text/Text';
 
 export default () => {
   return (
-    <div className="page page-home">
+    <div className="page-home">
       <Text
         text="alfy hushairi"
         className="font-header"

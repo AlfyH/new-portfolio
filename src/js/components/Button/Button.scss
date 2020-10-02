@@ -6,10 +6,10 @@
   height: $ICON_HEIGHT;
 };
 
-.component-image {
+.component-button-image {
   position: absolute;
-  width: 75px;
-  height: 75px;
+  width: $ICON_HEIGHT;
+  height: $ICON_HEIGHT;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
@@ -17,6 +17,6 @@
 
 .other-buttons {
   float: right;
-  margin-left: 30px;
+  margin-left: 15px;
 }
 

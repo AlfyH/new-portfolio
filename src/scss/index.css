@@ -1,53 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap%22%20rel=%22stylesheet");
 @import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-
-.page {
-  width: 100vw;
-  height: 100vh;
-}
-
-.app-wrapper {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-}
-
-.outer-wrapper {
-  width: 100vh;
-  height: 100vw;
-  transform: rotate(-90deg) translateX(-100vh);
-  transform-origin: top left;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  position: absolute;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.inner-wrapper {
-  display: flex;
-  flex-direction: row;
-  width: 300vw;
-  transform: rotate(90deg) translateY(-100vh);
-  transform-origin: top left;
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
-
 .font-header {
   text-align: center;
   font-family: "Roboto";
@@ -80,15 +33,28 @@ code {
 }
 
 .page-about {
-  background: green;
+  background: #f3f3f3;
+  width: 908px;
+  height: calc(100.1vh - 150px);
+}
+
+.image-me-bg {
+  width: 100%;
+  height: 100%;
+  object-position: 58% 26.745%;
+  object-fit: cover;
 }
 
 .page-home {
   background: #f3f3f3;
+  width: 100vw;
+  height: calc(100.1vh - 150px);
 }
 
 .page-portfolio {
   background: blue;
+  width: 200vw;
+  height: calc(100.1vh - 150px);
 }
 
 .scrubber {
@@ -124,8 +90,8 @@ code {
   transition: height 0.2s linear, width 0.2s linear;
   transform: translate(-50%, -50%);
   top: 50%;
-  width: 27px;
-  height: 27px;
+  width: 15px;
+  height: 15px;
 }
 
 .player-bar-duration {
@@ -134,35 +100,35 @@ code {
 }
 
 .player-furniture-wrapper {
-  height: 265px;
+  height: 150px;
   background-color: #1e1e1e;
   z-index: 2;
   width: 100vw;
   position: relative;
-  bottom: -webkit-calc(-100% + 265px);
+  bottom: -webkit-calc(-100% + 150px);
 }
 .player-furniture-wrapper .rabbit-logo-wrapper {
   position: absolute;
-  height: 253px;
-  width: 253px;
-  bottom: 126px;
+  height: 90px;
+  width: 90px;
+  bottom: 150px;
   left: 50%;
   margin-left: -webkit-calc(-253px / 2);
 }
 .player-furniture-wrapper .rabbit-logo {
-  height: 253px;
-  width: 253px;
+  height: 90px;
+  width: 90px;
 }
 .player-furniture-wrapper .buttons-wrapper {
   position: absolute;
-  bottom: 133px;
+  bottom: 72px;
   width: 80vw;
   left: 50%;
   margin-left: -40vw;
 }
 .player-furniture-wrapper .player-bar-wrapper {
   position: absolute;
-  bottom: 60px;
+  bottom: 30px;
   width: 80vw;
   height: 18px;
   left: 50%;
@@ -173,14 +139,14 @@ code {
   text-align: center;
   position: relative;
   float: left;
-  width: 75px;
-  height: 75px;
+  width: 50px;
+  height: 50px;
 }
 
-.component-image {
+.component-button-image {
   position: absolute;
-  width: 75px;
-  height: 75px;
+  width: 50px;
+  height: 50px;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
@@ -188,7 +154,7 @@ code {
 
 .other-buttons {
   float: right;
-  margin-left: 30px;
+  margin-left: 15px;
 }
 
 .component-modal-wrapper {
@@ -199,7 +165,7 @@ code {
   height: 45%;
   width: 100%;
   position: absolute;
-  bottom: 265px;
+  bottom: 150px;
 }
 
 .component-modal {
@@ -213,6 +179,43 @@ code {
 
 .overlay-title {
   margin-top: 11vh;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.outer-wrapper {
+  width: 100vh;
+  height: 100vw;
+  transform: rotate(-90deg) translateX(-100vh);
+  transform-origin: top left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.inner-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: calc( 100vw + 908px + 200vw);
+  transform: rotate(90deg) translateY(-100.1vh);
+  transform-origin: top left;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -1,3 +1,5 @@
 .page-portfolio {
   background: blue;
+  width: $PORTFOLIO_PAGE_WIDTH;
+  height: calc(100.1vh - #{$PLAYER_FURNITURE_HEIGHT});
 }

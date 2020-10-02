@@ -1,5 +1,5 @@
 import React from "react";
 
 export default () => {
-  return <div className="page page-portfolio">Portfolio</div>;
+  return <div className="page-portfolio">Portfolio</div>;
 };

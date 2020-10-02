@@ -1,3 +1,12 @@
 .page-about {
-  background: green;
+  background: $MAIN_BACKGROUND;
+  width: $ABOUT_PAGE_WIDTH;
+  height: calc(100.1vh - #{$PLAYER_FURNITURE_HEIGHT});
+}
+
+.image-me-bg {
+  width: 100%;
+  height: 100%;
+  object-position: 58% 26.745%;
+  object-fit: cover;
 }

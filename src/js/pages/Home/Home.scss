@@ -1,3 +1,5 @@
 .page-home {
   background: $MAIN_BACKGROUND;
+  width: $HOME_PAGE_WIDTH;
+  height: calc(100.1vh - #{$PLAYER_FURNITURE_HEIGHT});
 }
