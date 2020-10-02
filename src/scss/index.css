@@ -52,8 +52,27 @@
 }
 
 .page-portfolio {
-  background: blue;
-  width: 200vw;
+  background: #f3f3f3;
+  width: 960px;
+  height: calc(100.1vh - 150px);
+}
+
+.grid-cont {
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+.grid-item .port-img {
+  height: 100%;
+  width: 240px;
+  object-position: 58% 26.745%;
+  object-fit: cover;
+}
+
+.page-contact {
+  background: #f3f3f3;
+  width: 100vw;
   height: calc(100.1vh - 150px);
 }
 
@@ -209,7 +228,7 @@ body {
 .inner-wrapper {
   display: flex;
   flex-direction: row;
-  width: calc( 100vw + 908px + 200vw);
+  width: calc( 100vw + 908px + 960px + 100vw);
   transform: rotate(90deg) translateY(-100.1vh);
   transform-origin: top left;
 }

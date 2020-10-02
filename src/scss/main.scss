@@ -7,6 +7,7 @@
 @import '../js/pages/About/About.scss';
 @import '../js/pages/Home/Home.scss';
 @import '../js/pages/Portfolio/Portfolio.scss';
+@import '../js/pages/Contact/Contact.scss';
 
 //Components
 @import '../js/components/PlayerBar/PlayerBar.scss';
@@ -47,7 +48,7 @@ body {
 .inner-wrapper {
   display: flex;
   flex-direction: row;
-  width: calc( #{$HOME_PAGE_WIDTH} + #{$ABOUT_PAGE_WIDTH} + #{$PORTFOLIO_PAGE_WIDTH});
+  width: calc( #{$HOME_PAGE_WIDTH} + #{$ABOUT_PAGE_WIDTH} + #{$PORTFOLIO_PAGE_WIDTH} + #{$CONTACT_PAGE_WIDTH});
   transform: rotate(90deg) translateY(-100.1vh);
   transform-origin: top left;
 }
