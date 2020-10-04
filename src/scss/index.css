@@ -246,6 +246,20 @@ video::-webkit-media-controls-start-playback-button {
   margin-top: 34px;
 }
 
+.close-image {
+  width: 10px;
+  height: auto;
+}
+
+.button-close-image {
+  width: 10px;
+  height: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+}
+
 body {
   margin: 0;
   padding: 0;

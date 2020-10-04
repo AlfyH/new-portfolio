@@ -13,7 +13,6 @@
   border-color: black;
 }
 
-
 .component-modal {
   position: relative;
   text-align: center;
@@ -26,4 +25,18 @@
 
 .overlay-title {
   // margin-top: 11vh;
+}
+
+.close-image {
+  width: 10px;
+  height: auto;
+}
+
+.button-close-image {
+  width: 10px;
+  height: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
 }
