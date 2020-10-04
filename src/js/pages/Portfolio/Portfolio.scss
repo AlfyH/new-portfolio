@@ -1,3 +1,26 @@
 .page-portfolio {
-  background: blue;
+  background: $MAIN_BACKGROUND;
+  width: $PORTFOLIO_PAGE_WIDTH;
+  height: calc(100.1vh - #{$PLAYER_FURNITURE_HEIGHT});
+}
+
+.grid-cont{
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+.grid-item{
+  .port-img {
+    height: 100%;
+    width: 240px;
+    object-position: 40% 26.745%;
+    object-fit: cover;
+    filter: saturate(0%);
+  }
+  .port-img:hover {
+    filter: saturate(100%);
+    transform: scale(1.01);
+    transition-duration: 0.3s;
+  }
 }

@@ -3,21 +3,29 @@ import Modal from '../components/Modal/Modal';
 import PlayerBar from '../components/PlayerBar/PlayerBar';
 import Button from '../components/Button/Button';
 import $ from 'jquery';
-import { getScreenPosition, setScreenPosition, images } from "../helpers";
+import { getScreenPosition, setScreenPosition, images, getScreenWidth } from "../helpers";
 
 import PlayerFurniture from '../components/PlayerFurniture/PlayerFurniture';
 
 const player = {
   timer: null
 }
+let last_known_scroll_position = 0;
 
 export default ({ children }) => {
   const [ value, setValue ] = useState(0);
   const [ state, setState] = useState('None');
+  const [ isPlaying, setIsPlaying ] = useState(false);
+  const [ isModalShowing, setIsModalShowing] = useState(false);
 
   const handleScrubStart = x => {
     setValue(x);
     setState('Scrub Start')
+    if (player.timer) {
+      setIsPlaying(!isPlaying);
+      clearInterval(player.timer);
+      delete player.timer;
+    }
   }
 
   const handleScrubEnd = x => {
@@ -30,9 +38,30 @@ export default ({ children }) => {
   }
 
   const updateBarOnScroll = useCallback(() => {
-    console.log("screen position", $("#outer-wrapper").scrollTop());
+    console.log(
+      "getScreenPosition() / getScreenWidth()",
+      getScreenPosition() / getScreenWidth()
+    );
+    if (getScreenPosition() / getScreenWidth() >= 1) {
+      setIsModalShowing(true);
+    }
+    if (
+      0.9 <= getScreenPosition() / getScreenWidth() &&
+      getScreenPosition() / getScreenWidth() <1
+    ) {
+      setIsModalShowing(false);
+    }
+    // console.log("screen position", $("#outer-wrapper").scrollTop());
+    if ($("#outer-wrapper").scrollTop() > (last_known_scroll_position + 10 )) {
+      if (player.timer) {
+        setIsPlaying(!isPlaying);
+        clearInterval(player.timer);
+        delete player.timer;
+      }
+    }
+    last_known_scroll_position = $("#outer-wrapper").scrollTop();
     setValue($("#outer-wrapper").scrollTop());
-  }, []);
+  }, [isPlaying]);
 
   useEffect(() => {
     document
@@ -53,10 +82,34 @@ export default ({ children }) => {
     // console.log("screen percentage", `0${(getScreenPosition() / getScreenWidth()).toFixed(2)} / 01.00`.replace('.', ':'));
   }, [state, value]);
 
+  const playerAction = {
+    play: () => {
+      setIsPlaying(!isPlaying);
+      let interval = getScreenPosition();
+      if (player.timer) {
+        clearInterval(player.timer);
+        delete player.timer;
+      }
+      player.timer = setInterval(() => {
+        setScreenPosition(interval);
+        interval = interval + 10;
+      }, 100);
+    },
+    pause: () => {
+      setIsPlaying(!isPlaying);
+      clearInterval(player.timer);
+      if (player.timer) {
+        delete player.timer;
+      }
+    }
+  };
+
   return (
     <div className="app-wrapper">
-      <Modal />
-      {children}
+      { isModalShowing && <Modal setIsModalShowing={setIsModalShowing} isModalShowing={isModalShowing} />}
+      <div className={isModalShowing ? "blur" : ""} onClick={() => setIsModalShowing(false)}>
+        {children}
+      </div>
       <PlayerFurniture
         handleScrubStart={handleScrubStart}
         handleScrubEnd={handleScrubEnd}
@@ -64,41 +117,29 @@ export default ({ children }) => {
         value={value}
       >
         <Button
-          image={images.play_unfocused}
-          onClick={() => {
-            let interval = getScreenPosition();
-            if (player.timer) {
-              clearInterval(player.timer);
-              delete player.timer;
-            }
-            player.timer = setInterval(() => {
-              setScreenPosition(interval);
-              interval = interval + 10;
-            }, 100);
-          }}
+          image={isPlaying ? images.pause_focused : images.play_unfocused}
+          onClick={() =>
+            isPlaying ? playerAction.pause() : playerAction.play()
+          }
         />
         <Button
           image={images.info_unfocused}
           className="other-buttons"
           onClick={() => {
-            clearInterval(player.timer);
-            if (player.timer) {
-              delete player.timer;
-            }
-            console.log(player.timer);
+            isModalShowing ? setIsModalShowing(false) : setIsModalShowing(true);
           }}
         />
         <Button
           image={images.github_unfocused}
           className="other-buttons"
-          onClick={() => {
-            $("#component-modal").show();
-            console.log("open modal");
-          }}
+          onClick={() => {}}
         />
         <Button
           image={images.linkedin_unfocused}
           className="other-buttons"
+          // target="_blank"
+          // rel="noopener noreferrer"
+          // href="https://github.com/AlfyH"
           onClick={() => {}}
         />
         <PlayerBar

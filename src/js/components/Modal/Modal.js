@@ -1,26 +1,27 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Text from '../Text/Text';
-import $ from 'jquery';
 
+let modalClassName = "component-modal-wrapper";
 export default () => {
-
-  useEffect(() => {
-    $("#component-modal").hide();
-  }, []);
-  
   return (
-    <div
-      className="component-modal-wrapper"
-      id="component-modal"
-      onClick={() => {
-        $("#component-modal").hide();
-        console.log("hide modal");
-      }}
-    >
+    <div className={modalClassName} id="component-modal">
       <div className="component-modal">
-        <Text text={"Hi, I’m Alfy Hushairi. A web developer"} className={'font-overlay-title overlay-title'}/>
-        <Text text={"currently working in London, UK."} className={'font-overlay-title'}/>
-        <Text text={`Contact me at me@alfyhushairi.com`} className={'font-overlay-subtitle overlay-subtitle'}/>
+        <Text
+          text={"Alfy Hushairi."}
+          className={"font-overlay-title overlay-title"}
+        />
+        <Text
+          text={"A Web Developer"}
+          className={"font-overlay-title"}
+        />
+        <Text
+          text={"working in London, UK."}
+          className={"font-overlay-title"}
+        />
+        <Text
+          text={`me@alfyhushairi.com`}
+          className={"font-overlay-subtitle overlay-subtitle"}
+        />
       </div>
     </div>
   );

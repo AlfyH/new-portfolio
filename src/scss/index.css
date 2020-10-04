@@ -1,27 +1,266 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap%22%20rel=%22stylesheet");
 @import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
+.font-header {
+  font-family: "Libre Caslon Text", serif;
+  font-size: 4vh;
+  line-height: 1.2em;
+  color: #494949;
+  text-align: left;
+}
+
+.font-subtitle {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3vh;
+  line-height: 1.4em;
+  color: #494949;
+  text-align: left;
+}
+
+.font-player-bar {
+  font-family: "Roboto";
+  font-size: 2h;
+  color: white;
+  text-align: right;
+}
+
+.font-overlay-title {
+  font-family: "Libre Caslon Text", serif;
+  font-size: 4vh;
+  line-height: 1.2em;
+}
+
+.font-overlay-subtitle {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3vh;
+  line-height: 1.4em;
+}
+
+.page-about {
+  background: #f3f3f3;
+  width: 908px;
+  height: calc(100.1vh - 150px);
+}
+
+.image-me-bg {
+  width: 100%;
+  height: 100%;
+  object-position: 58% 26.745%;
+  object-fit: cover;
+}
+
+.page-home {
+  background: #f3f3f3;
+  width: 100vw;
+  height: calc(100.1vh - 150px);
+  overflow: scroll;
+}
+
+.home-header {
+  margin: 13vh 15vw 3vh 10vw;
+}
+
+.home-subtitle-one {
+  margin: 0 15vw 1.7vh 10vw;
+}
+
+.home-subtitle-two {
+  margin: 0 15vw 20vh 10vw;
+}
+
+.page-portfolio {
+  background: #f3f3f3;
+  width: 960px;
+  height: calc(100.1vh - 150px);
+}
+
+.grid-cont {
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+.grid-item .port-img {
+  height: 100%;
+  width: 240px;
+  object-position: 40% 26.745%;
+  object-fit: cover;
+  filter: saturate(0%);
+}
+.grid-item .port-img:hover {
+  filter: saturate(100%);
+  transform: scale(1.01);
+  transition-duration: 0.3s;
+}
+
+.page-contact {
+  background: #f3f3f3;
+  width: 100vw;
+  height: calc(100.1vh - 150px);
+}
+
+.video-cover {
+  height: 100%;
+  width: 100%;
+  object-position: 58% 26.745%;
+  object-fit: cover;
+}
+
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}
+
+.scrubber {
+  width: 100%;
+  float: left;
+  touch-action: none;
+}
+
+.scrubber * {
+  user-select: none;
+}
+
+.scrubber #bar {
+  background: rgba(27, 114, 9, 0.3);
+  position: relative;
+  height: 6.75px;
+  width: 100%;
+  margin-top: 5.6px;
+  cursor: pointer;
+}
+
+.scrubber #bar-progress {
+  position: absolute;
+  background: #fedb0e;
+  height: 100%;
+}
+
+.scrubber #bar-thumb {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border-radius: 20px;
+  background: #d2d2d2;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  width: 15px;
+  height: 15px;
+}
+
+#bar:hover > #bar-thumb {
+  transition: height 0.1s linear, width 0.1s linear;
+  height: 18px;
+  width: 18px;
+}
+
+.player-furniture-wrapper {
+  height: 150px;
+  background-color: #1e1e1e;
+  z-index: 2;
+  width: 100vw;
+  position: relative;
+  bottom: -webkit-calc(-100% + 150px);
+}
+.player-furniture-wrapper .rabbit-logo-wrapper {
+  position: absolute;
+  height: 90px;
+  width: 90px;
+  bottom: 150px;
+  left: 20%;
+}
+.player-furniture-wrapper .rabbit-logo {
+  height: 90px;
+  width: 90px;
+}
+.player-furniture-wrapper .buttons-wrapper {
+  position: absolute;
+  bottom: 72px;
+  width: 80vw;
+  left: 50%;
+  margin-left: -40vw;
+}
+.player-furniture-wrapper .player-bar-wrapper {
+  position: absolute;
+  bottom: 35px;
+  width: 80vw;
+  height: 18px;
+  left: 50%;
+  margin-left: -40vw;
+}
+.player-furniture-wrapper .player-bar-duration {
+  position: absolute;
+  right: 10vw;
+  bottom: 15px;
+}
+
+.component-button {
+  text-align: center;
+  position: relative;
+  float: left;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.component-button:hover {
+  opacity: 1;
+}
+
+.component-button-image {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.other-buttons {
+  float: right;
+  margin-left: 15px;
+}
+
+.component-modal-wrapper {
+  opacity: 0.5;
+  background: rgba(55, 54, 54, 0.95);
+  color: white;
+  opacity: 1;
+  z-index: 1;
+  position: absolute;
+  top: calc( 60% - 150px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.2px;
+  border-style: solid;
+  border-color: black;
+}
+
+.component-modal {
+  position: relative;
+  text-align: center;
+  margin: 1rem;
+}
+
+.overlay-subtitle {
+  margin-top: 34px;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-
-.page {
-  width: 100vw;
-  height: 100vh;
 }
 
 .app-wrapper {
   position: relative;
   width: 100vw;
   height: 100vh;
+}
+
+.blur {
+  filter: blur(3px);
 }
 
 .outer-wrapper {
@@ -39,180 +278,13 @@ code {
 .inner-wrapper {
   display: flex;
   flex-direction: row;
-  width: 300vw;
-  transform: rotate(90deg) translateY(-100vh);
+  width: calc( 200vw + 908px + 960px);
+  transform: rotate(90deg) translateY(-100.1vh);
   transform-origin: top left;
 }
 
 ::-webkit-scrollbar {
   display: none;
-}
-
-.font-header {
-  text-align: center;
-  font-family: "Roboto";
-  font-size: 4em;
-  color: #9f9f9f;
-}
-
-.font-subtitle {
-  text-align: center;
-  font-family: "Roboto";
-  font-size: 3em;
-  color: #9f9f9f;
-}
-
-.font-player-bar {
-  font-family: "Roboto";
-  font-size: 1.5vw;
-  color: #9f9f9f;
-  text-align: right;
-}
-
-.font-overlay-title {
-  font-family: "Libre Caslon Text", serif;
-  font-size: 23px;
-}
-
-.font-overlay-subtitle {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 32px;
-}
-
-.page-about {
-  background: green;
-}
-
-.page-home {
-  background: #f3f3f3;
-}
-
-.page-portfolio {
-  background: blue;
-}
-
-.scrubber {
-  width: 85%;
-  float: left;
-  touch-action: none;
-}
-
-.scrubber * {
-  user-select: none;
-}
-
-.scrubber .bar {
-  background: rgba(27, 114, 9, 0.3);
-  position: relative;
-  height: 6.75px;
-  width: 100%;
-  margin-top: 5.6px;
-}
-
-.scrubber .bar__progress {
-  position: absolute;
-  background: #fedb0e;
-  height: 100%;
-}
-
-.scrubber .bar__thumb {
-  position: absolute;
-  width: 0px;
-  height: 0px;
-  border-radius: 20px;
-  background: #d2d2d2;
-  transition: height 0.2s linear, width 0.2s linear;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  width: 27px;
-  height: 27px;
-}
-
-.player-bar-duration {
-  float: right;
-  height: 18px;
-}
-
-.player-furniture-wrapper {
-  height: 265px;
-  background-color: #1e1e1e;
-  z-index: 2;
-  width: 100vw;
-  position: relative;
-  bottom: -webkit-calc(-100% + 265px);
-}
-.player-furniture-wrapper .rabbit-logo-wrapper {
-  position: absolute;
-  height: 253px;
-  width: 253px;
-  bottom: 126px;
-  left: 50%;
-  margin-left: -webkit-calc(-253px / 2);
-}
-.player-furniture-wrapper .rabbit-logo {
-  height: 253px;
-  width: 253px;
-}
-.player-furniture-wrapper .buttons-wrapper {
-  position: absolute;
-  bottom: 133px;
-  width: 80vw;
-  left: 50%;
-  margin-left: -40vw;
-}
-.player-furniture-wrapper .player-bar-wrapper {
-  position: absolute;
-  bottom: 60px;
-  width: 80vw;
-  height: 18px;
-  left: 50%;
-  margin-left: -40vw;
-}
-
-.component-button {
-  text-align: center;
-  position: relative;
-  float: left;
-  width: 75px;
-  height: 75px;
-}
-
-.component-image {
-  position: absolute;
-  width: 75px;
-  height: 75px;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-}
-
-.other-buttons {
-  float: right;
-  margin-left: 30px;
-}
-
-.component-modal-wrapper {
-  background: rgba(55, 54, 54, 0.8);
-  color: white;
-  opacity: 0.9;
-  z-index: 1;
-  height: 45%;
-  width: 100%;
-  position: absolute;
-  bottom: 265px;
-}
-
-.component-modal {
-  position: relative;
-  text-align: center;
-}
-
-.overlay-subtitle {
-  margin-top: 34px;
-}
-
-.overlay-title {
-  margin-top: 11vh;
 }
 
 /*# sourceMappingURL=index.css.map */

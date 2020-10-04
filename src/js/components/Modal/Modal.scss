@@ -1,17 +1,23 @@
 .component-modal-wrapper {
+  opacity: 0.5;
   background: $OVERLAY_BACKGROUND;
   color: $OVERLAY_TEXT;
-  opacity: 0.9;
+  opacity: 1;
   z-index: 1;
-  height: 45%;
-  width: 100%;
   position: absolute;
-  bottom: $PLAYER_FURNITURE_HEIGHT;
+  top: calc( 60% - #{$PLAYER_FURNITURE_HEIGHT});
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.2px;
+  border-style: solid;
+  border-color: black;
 }
+
 
 .component-modal {
   position: relative;
   text-align: center;
+  margin: 1rem;
 }
 
 .overlay-subtitle {
@@ -19,5 +25,5 @@
 }
 
 .overlay-title {
-  margin-top: 11vh;
+  // margin-top: 11vh;
 }

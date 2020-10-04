@@ -162,9 +162,9 @@ export default ({
        // onMouseLeave={() => setHover(false)} //TODO remove hover class
        className={"scrubber"}
      >
-       <div className="bar" ref={barRef}>
-         <div className="bar__progress" style={{ width: `${valuePercent}%` }} />
-         <div className="bar__thumb" style={{ left: `${valuePercent}%` }} />
+       <div id={"bar"} ref={barRef}>
+         <div id="bar-progress" style={{ width: `${valuePercent}%` }} />
+         <div id="bar-thumb" style={{ left: `${valuePercent}%` }} />
        </div>
      </div>
    );
