@@ -17,6 +17,11 @@ export default ({ children }) => {
   const [ state, setState] = useState('None');
   const [ isPlaying, setIsPlaying ] = useState(false);
   const [ isModalShowing, setIsModalShowing] = useState(false);
+  const [ isAppLoaded, setIsAppLoaded ] = useState(false);
+
+  window.onload = () => {
+    setIsAppLoaded(true);
+  };
 
   const handleScrubStart = x => {
     setValue(x);
@@ -38,11 +43,7 @@ export default ({ children }) => {
   }
 
   const updateBarOnScroll = useCallback(() => {
-    console.log(
-      "getScreenPosition() / getScreenWidth()",
-      getScreenPosition() / getScreenWidth()
-    );
-    if (getScreenPosition() / getScreenWidth() >= 1) {
+    if ((getScreenPosition() / getScreenWidth()) >= 1 && isAppLoaded) {
       setIsModalShowing(true);
     }
     if (
@@ -52,16 +53,20 @@ export default ({ children }) => {
       setIsModalShowing(false);
     }
     // console.log("screen position", $("#outer-wrapper").scrollTop());
-    if ($("#outer-wrapper").scrollTop() > (last_known_scroll_position + 10 )) {
+    if (
+      $("#outer-wrapper").scrollTop() > last_known_scroll_position + 10 ||
+      $("#outer-wrapper").scrollTop() < last_known_scroll_position + 10
+    ) {
       if (player.timer) {
         setIsPlaying(!isPlaying);
         clearInterval(player.timer);
         delete player.timer;
       }
     }
+
     last_known_scroll_position = $("#outer-wrapper").scrollTop();
     setValue($("#outer-wrapper").scrollTop());
-  }, [isPlaying]);
+  }, [isAppLoaded, isPlaying]);
 
   useEffect(() => {
     document
@@ -75,11 +80,11 @@ export default ({ children }) => {
   }, [updateBarOnScroll]);
 
   useEffect(() => {
-    // console.log('state', state);
-    // console.log("screen position", getScreenPosition());
-    // console.log("screen width", getScreenWidth());
-    // console.log("bar value", value);
-    // console.log("screen percentage", `0${(getScreenPosition() / getScreenWidth()).toFixed(2)} / 01.00`.replace('.', ':'));
+    // console.log("scrollY", window.scrollX);
+    console.log("screen position", getScreenPosition());
+    console.log("screen width", getScreenWidth());
+    console.log("bar value", value);
+    console.log("screen percentage", `0${(getScreenPosition() / getScreenWidth()).toFixed(2)} / 01.00`.replace('.', ':'));
   }, [state, value]);
 
   const playerAction = {
@@ -106,8 +111,15 @@ export default ({ children }) => {
 
   return (
     <div className="app-wrapper">
-      { isModalShowing && <Modal setIsModalShowing={setIsModalShowing} isModalShowing={isModalShowing} />}
-      <div className={isModalShowing ? "blur" : ""} onClick={() => setIsModalShowing(false)}>
+      {isModalShowing && (
+        <Modal
+          setIsModalShowing={setIsModalShowing}
+        />
+      )}
+      <div
+        className={isModalShowing ? "blur" : ""}
+        onClick={() => setIsModalShowing(false)}
+      >
         {children}
       </div>
       <PlayerFurniture
@@ -123,24 +135,25 @@ export default ({ children }) => {
           }
         />
         <Button
-          image={images.info_unfocused}
+          image={images.info_focused}
           className="other-buttons"
           onClick={() => {
             isModalShowing ? setIsModalShowing(false) : setIsModalShowing(true);
           }}
         />
         <Button
-          image={images.github_unfocused}
+          image={images.github_focused}
           className="other-buttons"
-          onClick={() => {}}
+          onClick={() => {
+            window.open("https://github.com/AlfyH", "_blank");
+          }}
         />
         <Button
-          image={images.linkedin_unfocused}
+          image={images.linkedin_focused}
           className="other-buttons"
-          // target="_blank"
-          // rel="noopener noreferrer"
-          // href="https://github.com/AlfyH"
-          onClick={() => {}}
+          onClick={() => {
+            window.open("https://www.linkedin.com/in/alfyhushairi", "_blank");
+          }}
         />
         <PlayerBar
           min={0}

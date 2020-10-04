@@ -11,6 +11,7 @@ import pause_unfocused from "../../assets/pause_unfocused.png";
 import rabbit_desktop from "../../assets/rabbit_desktop.png";
 import rabbit_mobile from "../../assets/rabbit_mobile.png";
 import me_bg_desktop from "../../assets/me_bg_desktop.png";
+import close from "../../assets/close.png";
 
 import image_one from "../../assets/image_one.png";
 import image_two from "../../assets/image_two.png";
@@ -36,6 +37,7 @@ const images = {
   rabbit_desktop,
   rabbit_mobile,
   me_bg_desktop,
+  close,
   image_one,
   image_two,
   image_three,
