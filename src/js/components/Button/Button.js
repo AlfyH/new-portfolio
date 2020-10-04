@@ -13,7 +13,7 @@ export default ({ className , style, text, image, onClick }) =>{
       text={text}
       />
       <Image 
-        className="component-image"
+        className="component-button-image"
         src={image} 
         alt={''} 
       />

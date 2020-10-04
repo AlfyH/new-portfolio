@@ -1,3 +1,18 @@
 .page-home {
   background: $MAIN_BACKGROUND;
+  width: $HOME_PAGE_WIDTH;
+  height: calc(100.1vh - #{$PLAYER_FURNITURE_HEIGHT});
+  overflow: scroll;
+}
+
+.home-header {
+  margin: 13vh 15vw 3vh 10vw;
+}
+
+.home-subtitle-one {
+  margin: 0 15vw 1.7vh 10vw;
+}
+
+.home-subtitle-two {
+  margin: 0 15vw 20vh 10vw;
 }

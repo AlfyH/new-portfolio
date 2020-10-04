@@ -1,27 +1,40 @@
+//Styles
+@import './dimensions.scss';
+@import './colours.scss';
+@import './typography.scss';
+
+//Pages
+@import '../js/pages/About/About.scss';
+@import '../js/pages/Home/Home.scss';
+@import '../js/pages/Portfolio/Portfolio.scss';
+@import '../js/pages/Contact/Contact.scss';
+
+//Components
+@import '../js/components/PlayerBar/PlayerBar.scss';
+@import '../js/components/PlayerFurniture/PlayerFurniture.scss';
+@import '../js/components/Button/Button.scss';
+@import '../js/components/Modal/Modal.scss';
+@import '../js/components/Image/Image.scss';
+@import '../js/components/Text/Text.scss';
+
+//Responsive
+@import './responsive.scss';
+
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-.page {
-  width: 100vw;
-  height: 100vh;
 }
 
 .app-wrapper {
   position: relative;
   width: 100vw;
   height: 100vh;
+}
+
+.blur {
+  filter: blur(3px);
 }
 
 .outer-wrapper {
@@ -39,32 +52,12 @@ code {
 .inner-wrapper {
   display: flex;
   flex-direction: row;
-  width: 300vw;
-  transform: rotate(90deg) translateY(-100vh);
+  // width: calc( #{$HOME_PAGE_WIDTH} + #{$ABOUT_PAGE_WIDTH} + #{$PORTFOLIO_PAGE_WIDTH} + #{$CONTACT_PAGE_WIDTH});
+  width: calc( 200vw + 908px + 960px);
+  transform: rotate(90deg) translateY(-100.1vh);
   transform-origin: top left;
 }
 
 ::-webkit-scrollbar {
   display:none;
 }
-
-//Styles
-@import './dimensions.scss';
-@import './colours.scss';
-@import './typography.scss';
-
-//Pages
-@import '../js/pages/About/About.scss';
-@import '../js/pages/Home/Home.scss';
-@import '../js/pages/Portfolio/Portfolio.scss';
-
-//Components
-@import '../js/components/PlayerBar/PlayerBar.scss';
-@import '../js/components/PlayerFurniture/PlayerFurniture.scss';
-@import '../js/components/Button/Button.scss';
-@import '../js/components/Modal/Modal.scss';
-@import '../js/components/Image/Image.scss';
-@import '../js/components/Text/Text.scss';
-
-//Responsive
-@import './responsive.scss';

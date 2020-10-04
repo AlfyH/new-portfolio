@@ -23,20 +23,15 @@ export default ({
       </div>
       <div className="buttons-wrapper">
         {playBtn}
-        {infoBtn}
-        {gitBtn}
         {linkedinBtn}
+        {gitBtn}
+        {infoBtn}
       </div>
-      <div className="player-bar-wrapper">
-        {playerBar}
-        <Text
-          className="font-player-bar"
-          text={`0${getPlayerProgress()} / 01:00`.replace(".", ":")}
-        />
-        {/* <div className="player-bar-duration">
-          {`0${getPlayerProgress()} / 01:00`.replace(".", ":")}
-        </div> */}
-      </div>
+      <div className="player-bar-wrapper">{playerBar}</div>
+      <Text
+        className="font-player-bar player-bar-duration"
+        text={`0${getPlayerProgress()} / 01:00`.replace(".", ":")}
+      />
     </div>
   );
 };
