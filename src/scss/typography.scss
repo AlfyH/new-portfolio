@@ -3,32 +3,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap"); //font-family: 'Cormorant Garamond', serif;
 
 .font-header {
-  text-align: center;
-  font-family: "Roboto";
-  font-size: 4em;
+  font-family: 'Libre Caslon Text', serif;
+  font-size: 4vh;
+  line-height: 1.2em;
   color: $TEXT_GREY;
+  text-align: left;
 }
 
 .font-subtitle {
-  text-align: center;
-  font-family: "Roboto";
-  font-size: 3em;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3vh;
+  line-height: 1.4em;
   color: $TEXT_GREY;
+  text-align: left;
 }
 
 .font-player-bar {
   font-family: "Roboto";
-  font-size: 1.5vw;
-  color: $TEXT_GREY;
+  font-size: 2h;
+  color: white;
   text-align: right;
 }
 
 .font-overlay-title {
   font-family: 'Libre Caslon Text', serif;
-  font-size: 23px;
+  font-size: 4vh;
+  line-height: 1.2em;
 }
 
 .font-overlay-subtitle {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 32px;
+  font-size: 3vh;
+  line-height: 1.4em;
 }

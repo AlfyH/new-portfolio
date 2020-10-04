@@ -3,3 +3,14 @@
   width: $CONTACT_PAGE_WIDTH;
   height: calc(100.1vh - #{$PLAYER_FURNITURE_HEIGHT});
 }
+
+.video-cover {
+  height: 100%;
+  width: 100%;
+  object-position: 58% 26.745%;
+  object-fit: cover;
+}
+
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}

@@ -6,6 +6,8 @@ import linkedin_focused from "../../assets/linkedin_focused.png";
 import linkedin_unfocused from "../../assets/linkedin_unfocused.png";
 import play_focused from "../../assets/play_focused.png";
 import play_unfocused from "../../assets/play_unfocused.png";
+import pause_focused from "../../assets/pause_focused.png";
+import pause_unfocused from "../../assets/pause_unfocused.png";
 import rabbit_desktop from "../../assets/rabbit_desktop.png";
 import rabbit_mobile from "../../assets/rabbit_mobile.png";
 import me_bg_desktop from "../../assets/me_bg_desktop.png";
@@ -29,6 +31,8 @@ const images = {
   linkedin_unfocused,
   play_focused,
   play_unfocused,
+  pause_focused,
+  pause_unfocused,
   rabbit_desktop,
   rabbit_mobile,
   me_bg_desktop,

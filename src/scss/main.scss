@@ -33,6 +33,10 @@ body {
   height: 100vh;
 }
 
+.blur {
+  filter: blur(3px);
+}
+
 .outer-wrapper {
   width: 100vh;
   height: 100vw;
@@ -48,7 +52,8 @@ body {
 .inner-wrapper {
   display: flex;
   flex-direction: row;
-  width: calc( #{$HOME_PAGE_WIDTH} + #{$ABOUT_PAGE_WIDTH} + #{$PORTFOLIO_PAGE_WIDTH} + #{$CONTACT_PAGE_WIDTH});
+  // width: calc( #{$HOME_PAGE_WIDTH} + #{$ABOUT_PAGE_WIDTH} + #{$PORTFOLIO_PAGE_WIDTH} + #{$CONTACT_PAGE_WIDTH});
+  width: calc( 200vw + 908px + 960px);
   transform: rotate(90deg) translateY(-100.1vh);
   transform-origin: top left;
 }

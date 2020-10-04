@@ -11,8 +11,8 @@
     height: $RABBIT_HEIGHT;
     width: $RABBIT_HEIGHT;
     bottom: $PLAYER_FURNITURE_HEIGHT;
-    left: 50%;
-    margin-left: -webkit-calc(-253px / 2); //$RABBIT_HEIGHT
+    left: 20%;
+    // margin-left: -webkit-calc(-253px / 2); //$RABBIT_HEIGHT
   }
 
   .rabbit-logo {
@@ -30,10 +30,16 @@
 
   .player-bar-wrapper {
     position: absolute;
-    bottom: 30px;
+    bottom: 35px;
     width: 80vw;
     height: 18px;
     left: 50%;
     margin-left: -40vw;
+  }
+
+  .player-bar-duration {
+    position: absolute;
+    right: 10vw;
+    bottom: 15px;
   }
 }

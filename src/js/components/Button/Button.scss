@@ -4,7 +4,13 @@
   float: left;
   width: $ICON_HEIGHT;
   height: $ICON_HEIGHT;
+  cursor: pointer;
+  opacity: 0.8;
 };
+
+.component-button:hover {
+    opacity: 1;
+  }
 
 .component-button-image {
   position: absolute;

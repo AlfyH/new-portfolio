@@ -14,7 +14,13 @@
   .port-img {
     height: 100%;
     width: 240px;
-    object-position: 58% 26.745%;
+    object-position: 40% 26.745%;
     object-fit: cover;
+    filter: saturate(0%);
+  }
+  .port-img:hover {
+    filter: saturate(100%);
+    transform: scale(1.01);
+    transition-duration: 0.3s;
   }
 }
