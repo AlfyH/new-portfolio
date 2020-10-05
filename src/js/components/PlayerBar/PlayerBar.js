@@ -1,4 +1,3 @@
-import { setScreenPosition } from '../../helpers';
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 
 const clamp = (min, max, val) => Math.min(Math.max(min, val), max);
@@ -15,7 +14,7 @@ export default ({
    const [mouseX, setMouseX] = useState(null);
    const [touchX, setTouchX] = useState(null);
    const [seeking, setSeeking] = useState(false);
-   const [touchId, setTouchId] = useState(false);
+
    const [valuePercent, setValuePercent] = useState(0);
    const barRef = useRef();
 
@@ -56,7 +55,6 @@ export default ({
          if (onScrubEnd) {
            onScrubEnd(getPositionFromCursor());
          }
-         setScreenPosition(getPositionFromCursor());
        }
      },
      [getPositionFromCursor, onScrubChange, onScrubEnd, onScrubStart, seeking]
@@ -78,7 +76,6 @@ export default ({
          onScrubEnd(getPositionFromCursor());
        }
        setSeeking(false);
-       setScreenPosition(getPositionFromCursor());
      }
    }, [getPositionFromCursor, onScrubEnd, seeking]);
 
@@ -90,25 +87,24 @@ export default ({
        if (seeking) {
          e.preventDefault();
        }
-
-       const touch = Array.from(e.changedTouches).find(
-         (t) => t.identifier === touchId
-       );
-       if (touch) {
-         setTouchX(e.pageX);
-         if (seeking && onScrubChange) {
-           onScrubChange(getPositionFromCursor());
-         }
-       }
+        setTouchX(e.pageX);
+        if (seeking && onScrubChange) {
+          onScrubChange(getPositionFromCursor());
+          if (onScrubStart) {
+            onScrubStart(getPositionFromCursor());
+          }
+          if (onScrubEnd) {
+            onScrubEnd(getPositionFromCursor());
+          }
+        }
      },
-     [getPositionFromCursor, onScrubChange, seeking, touchId]
+     [getPositionFromCursor, onScrubChange, onScrubEnd, onScrubStart, seeking]
    );
 
    const handleTouchStart = useCallback(
      (e) => {
        const touch = e.changedTouches[0];
        setSeeking(true);
-       setTouchId(touch.identifier);
        setTouchX(touch.pageX);
        if (onScrubStart) {
          onScrubStart(getPositionFromCursor());
@@ -118,20 +114,15 @@ export default ({
    );
 
    const handleTouchEnd = useCallback(
-     (e) => {
-       const touch = Array.from(e.changedTouches).find(
-         (t) => t.identifier === touchId
-       );
-       if (touch && seeking) {
+     () => {
+       if (seeking) {
          if (onScrubEnd) {
            onScrubEnd(getPositionFromCursor());
          }
          setSeeking(false);
-         setTouchX(null);
-         setTouchId(null);
        }
      },
-     [getPositionFromCursor, onScrubEnd, seeking, touchId]
+     [getPositionFromCursor, onScrubEnd, seeking]
    );
 
    /* -------End Touch--------- */

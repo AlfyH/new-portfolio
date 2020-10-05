@@ -14,7 +14,6 @@ let last_known_scroll_position = 0;
 
 export default ({ children }) => {
   const [ value, setValue ] = useState(0);
-  const [ state, setState] = useState('None');
   const [ isPlaying, setIsPlaying ] = useState(false);
   const [ isModalShowing, setIsModalShowing] = useState(false);
   const [ isAppLoaded, setIsAppLoaded ] = useState(false);
@@ -24,8 +23,8 @@ export default ({ children }) => {
   };
 
   const handleScrubStart = x => {
+    setScreenPosition(x);
     setValue(x);
-    setState('Scrub Start')
     if (player.timer) {
       setIsPlaying(!isPlaying);
       clearInterval(player.timer);
@@ -34,12 +33,11 @@ export default ({ children }) => {
   }
 
   const handleScrubEnd = x => {
+    setScreenPosition(x);
     setValue(x);
-    setState('Scrub End')
   }
 
   const handleScrubChange = x => {
-    setState('Scrub Change')
   }
 
   const updateBarOnScroll = useCallback(() => {
@@ -78,12 +76,12 @@ export default ({ children }) => {
         .removeEventListener("scroll", updateBarOnScroll);
   }, [updateBarOnScroll]);
 
-  useEffect(() => {
-    console.log("screen position", getScreenPosition());
-    console.log("screen width", getScreenWidth());
-    console.log("bar value", value);
-    console.log("screen percentage", `0${(getScreenPosition() / getScreenWidth()).toFixed(2)} / 01.00`.replace('.', ':'));
-  }, [state, value]);
+  // useEffect(() => {
+  //   console.log("screen position", getScreenPosition());
+  //   console.log("screen width", getScreenWidth());
+  //   console.log("bar value", value);
+  //   console.log("screen percentage", `0${(getScreenPosition() / getScreenWidth()).toFixed(2)} / 01.00`.replace('.', ':'));
+  // }, [state, value]);
 
   const playerAction = {
     play: () => {
@@ -120,12 +118,7 @@ export default ({ children }) => {
       >
         {children}
       </div>
-      <PlayerFurniture
-        handleScrubStart={handleScrubStart}
-        handleScrubEnd={handleScrubEnd}
-        handleScrubChange={handleScrubChange}
-        value={value}
-      >
+      <PlayerFurniture>
         <Button
           image={isPlaying ? images.pause_focused : images.play_unfocused}
           onClick={() =>
