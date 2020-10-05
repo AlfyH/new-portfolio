@@ -52,7 +52,6 @@ body {
 .inner-wrapper {
   display: flex;
   flex-direction: row;
-  // width: calc( #{$HOME_PAGE_WIDTH} + #{$ABOUT_PAGE_WIDTH} + #{$PORTFOLIO_PAGE_WIDTH} + #{$CONTACT_PAGE_WIDTH});
   width: calc( 200vw + 908px + 960px);
   transform: rotate(90deg) translateY(-100.1vh);
   transform-origin: top left;

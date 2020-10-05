@@ -11,9 +11,11 @@
 }
 
 .grid-item{
-  .port-img {
     height: 100%;
     width: 240px;
+  .port-img {
+    height: 100%;
+    width: 100%;
     object-position: 40% 26.745%;
     object-fit: cover;
     filter: saturate(0%);

@@ -5,6 +5,5 @@ export default () => {
   if ($("#inner-wrapper").width()) {
     screenWidth = $("#inner-wrapper").width();
   }
-  return (screenWidth * 2) / 3;
+  return (screenWidth - window.innerWidth);
 };
-

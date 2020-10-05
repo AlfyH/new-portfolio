@@ -52,7 +52,6 @@ export default ({ children }) => {
     ) {
       setIsModalShowing(false);
     }
-    // console.log("screen position", $("#outer-wrapper").scrollTop());
     if (
       $("#outer-wrapper").scrollTop() > last_known_scroll_position + 10 ||
       $("#outer-wrapper").scrollTop() < last_known_scroll_position + 10
@@ -80,7 +79,6 @@ export default ({ children }) => {
   }, [updateBarOnScroll]);
 
   useEffect(() => {
-    // console.log("scrollY", window.scrollX);
     console.log("screen position", getScreenPosition());
     console.log("screen width", getScreenWidth());
     console.log("bar value", value);
@@ -157,7 +155,7 @@ export default ({ children }) => {
         />
         <PlayerBar
           min={0}
-          max={($("#inner-wrapper").width() * 2) / 3}
+          max={getScreenWidth()}
           value={value}
           onScrubStart={handleScrubStart}
           onScrubEnd={handleScrubEnd}
