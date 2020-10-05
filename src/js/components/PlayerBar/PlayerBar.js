@@ -1,5 +1,5 @@
+import { setScreenPosition } from '../../helpers';
 import React, { useEffect, useState, useRef, useCallback } from 'react';
-import $ from 'jquery';
 
 const clamp = (min, max, val) => Math.min(Math.max(min, val), max);
 const round = (val, dp) => parseFloat(val.toFixed(dp));
@@ -56,7 +56,7 @@ export default ({
          if (onScrubEnd) {
            onScrubEnd(getPositionFromCursor());
          }
-         $("#outer-wrapper").scrollTop(getPositionFromCursor());
+         setScreenPosition(getPositionFromCursor());
        }
      },
      [getPositionFromCursor, onScrubChange, onScrubEnd, onScrubStart, seeking]
@@ -78,7 +78,7 @@ export default ({
          onScrubEnd(getPositionFromCursor());
        }
        setSeeking(false);
-       $("#outer-wrapper").scrollTop(getPositionFromCursor());
+       setScreenPosition(getPositionFromCursor());
      }
    }, [getPositionFromCursor, onScrubEnd, seeking]);
 
@@ -158,8 +158,6 @@ export default ({
        onMouseDown={handleSeekStart}
        onTouchStart={handleTouchStart}
        onTouchEnd={(e) => e.preventDefault()}
-       // onMouseOver={() => setHover(true)} //TODO add hover class
-       // onMouseLeave={() => setHover(false)} //TODO remove hover class
        className={"scrubber"}
      >
        <div id={"bar"} ref={barRef}>

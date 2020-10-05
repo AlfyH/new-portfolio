@@ -80,9 +80,13 @@
   grid-template-columns: auto auto auto auto;
 }
 
-.grid-item .port-img {
+.grid-item {
   height: 100%;
   width: 240px;
+}
+.grid-item .port-img {
+  height: 100%;
+  width: 100%;
   object-position: 40% 26.745%;
   object-fit: cover;
   filter: saturate(0%);
