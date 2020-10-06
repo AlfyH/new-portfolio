@@ -37,7 +37,7 @@
 }
 
 .page-about {
-  background: #f3f3f3;
+  background: black;
   width: 908px;
   height: calc(100.1vh - 150px);
 }
@@ -69,7 +69,7 @@
 }
 
 .page-portfolio {
-  background: #f3f3f3;
+  background: black;
   width: 960px;
   height: calc(100.1vh - 150px);
 }
@@ -98,7 +98,7 @@
 }
 
 .page-contact {
-  background: #f3f3f3;
+  background: black;
   width: 100vw;
   height: calc(100.1vh - 150px);
 }
@@ -272,6 +272,7 @@ body {
 }
 
 .app-wrapper {
+  background-color: black;
   position: relative;
   width: 100vw;
   height: 100vh;
