@@ -27,6 +27,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a:link {
+    text-decoration: none;
+    color: $TEXT_HYPERLINK;
+}
+
+a:visited {
+    text-decoration: none;
+    color: $TEXT_HYPERLINK;
+}
+
 .app-wrapper {
   background-color: black;
   position: relative;

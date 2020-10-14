@@ -111,7 +111,7 @@ export default ({ children }) => {
   return (
     <div
       className="app-wrapper"
-      // style={{ height: size.height }}
+      style={{ height: size.height }}
       // style={{ height: $(window).height() }}
       // style={{ height: window.innerHeight }}
     >
@@ -147,7 +147,7 @@ export default ({ children }) => {
           image={images.github_focused}
           className="other-buttons"
           onClick={() => {
-            window.open("https://github.com/AlfyH", "_blank");
+            window.open("https://github.com/AlfyH/new-portfolio", "_blank");
           }}
         />
         <Button
