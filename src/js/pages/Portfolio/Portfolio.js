@@ -34,7 +34,7 @@ export default () => {
     <div className="page-portfolio">
       <div className="grid-cont">
         {imageArray.map((item) => (
-          <div className="grid-item">
+          <div key={item.image} className="grid-item">
             <Image 
               src={item.image}
               className="port-img"

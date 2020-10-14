@@ -1,8 +1,10 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import Modal from '../components/Modal/Modal';
 import PlayerBar from '../components/PlayerBar/PlayerBar';
+import Image from "../components/Image/Image";
 import Button from '../components/Button/Button';
 import $ from 'jquery';
+import useWindowSize from '../hooks/useWindowSize';
 import { getScreenPosition, setScreenPosition, images, getScreenWidth } from "../helpers";
 
 import PlayerFurniture from '../components/PlayerFurniture/PlayerFurniture';
@@ -14,13 +16,18 @@ let last_known_scroll_position = 0;
 
 export default ({ children }) => {
   const [ value, setValue ] = useState(0);
-  const [ state, setState] = useState('None');
   const [ isPlaying, setIsPlaying ] = useState(false);
   const [ isModalShowing, setIsModalShowing] = useState(false);
+  const [ isAppLoaded, setIsAppLoaded ] = useState(false);
+  const size = useWindowSize();
+
+  window.onload = () => {
+    setIsAppLoaded(true);
+  };
 
   const handleScrubStart = x => {
+    setScreenPosition(x);
     setValue(x);
-    setState('Scrub Start')
     if (player.timer) {
       setIsPlaying(!isPlaying);
       clearInterval(player.timer);
@@ -29,20 +36,15 @@ export default ({ children }) => {
   }
 
   const handleScrubEnd = x => {
+    setScreenPosition(x);
     setValue(x);
-    setState('Scrub End')
   }
 
   const handleScrubChange = x => {
-    setState('Scrub Change')
   }
 
   const updateBarOnScroll = useCallback(() => {
-    console.log(
-      "getScreenPosition() / getScreenWidth()",
-      getScreenPosition() / getScreenWidth()
-    );
-    if (getScreenPosition() / getScreenWidth() >= 1) {
+    if ((getScreenPosition() === getScreenWidth()) && isAppLoaded) {
       setIsModalShowing(true);
     }
     if (
@@ -51,17 +53,20 @@ export default ({ children }) => {
     ) {
       setIsModalShowing(false);
     }
-    // console.log("screen position", $("#outer-wrapper").scrollTop());
-    if ($("#outer-wrapper").scrollTop() > (last_known_scroll_position + 10 )) {
+    if (
+      $("#outer-wrapper").scrollTop() > last_known_scroll_position + 10 ||
+      $("#outer-wrapper").scrollTop() < last_known_scroll_position + 10
+    ) {
       if (player.timer) {
         setIsPlaying(!isPlaying);
         clearInterval(player.timer);
         delete player.timer;
       }
     }
+
     last_known_scroll_position = $("#outer-wrapper").scrollTop();
     setValue($("#outer-wrapper").scrollTop());
-  }, [isPlaying]);
+  }, [isAppLoaded, isPlaying]);
 
   useEffect(() => {
     document
@@ -74,13 +79,12 @@ export default ({ children }) => {
         .removeEventListener("scroll", updateBarOnScroll);
   }, [updateBarOnScroll]);
 
-  useEffect(() => {
-    // console.log('state', state);
-    // console.log("screen position", getScreenPosition());
-    // console.log("screen width", getScreenWidth());
-    // console.log("bar value", value);
-    // console.log("screen percentage", `0${(getScreenPosition() / getScreenWidth()).toFixed(2)} / 01.00`.replace('.', ':'));
-  }, [state, value]);
+  // useEffect(() => {
+  //   console.log("screen position", getScreenPosition());
+  //   console.log("screen width", getScreenWidth());
+  //   console.log("bar value", value);
+  //   console.log("screen percentage", `0${(getScreenPosition() / getScreenWidth()).toFixed(2)} / 01.00`.replace('.', ':'));
+  // }, [value]);
 
   const playerAction = {
     play: () => {
@@ -105,46 +109,57 @@ export default ({ children }) => {
   };
 
   return (
-    <div className="app-wrapper">
-      { isModalShowing && <Modal setIsModalShowing={setIsModalShowing} isModalShowing={isModalShowing} />}
-      <div className={isModalShowing ? "blur" : ""} onClick={() => setIsModalShowing(false)}>
+    <div
+      className="app-wrapper"
+      // style={{ height: size.height }}
+      // style={{ height: $(window).height() }}
+      // style={{ height: window.innerHeight }}
+    >
+      {isModalShowing && <Modal setIsModalShowing={setIsModalShowing} />}
+      <div
+        className={isModalShowing ? "blur" : ""}
+        onClick={() => setIsModalShowing(false)}
+      >
         {children}
       </div>
-      <PlayerFurniture
-        handleScrubStart={handleScrubStart}
-        handleScrubEnd={handleScrubEnd}
-        handleScrubChange={handleScrubChange}
-        value={value}
-      >
+      {getScreenPosition() === 0 && <Image 
+        src={images.right}
+        className={"right-button"}
+        onClick={() => {
+          setScreenPosition(window.innerWidth * 0.4, true);
+        }}
+      />}
+      <PlayerFurniture>
         <Button
-          image={isPlaying ? images.pause_focused : images.play_unfocused}
+          image={getScreenPosition() === getScreenWidth() ? images.restart_focused : isPlaying ? images.pause_focused : images.play_focused}
           onClick={() =>
-            isPlaying ? playerAction.pause() : playerAction.play()
+            getScreenPosition() === getScreenWidth() ? setScreenPosition(0, true) : isPlaying ? playerAction.pause() : playerAction.play()
           }
         />
         <Button
-          image={images.info_unfocused}
+          image={images.info_focused}
           className="other-buttons"
           onClick={() => {
             isModalShowing ? setIsModalShowing(false) : setIsModalShowing(true);
           }}
         />
         <Button
-          image={images.github_unfocused}
+          image={images.github_focused}
           className="other-buttons"
-          onClick={() => {}}
+          onClick={() => {
+            window.open("https://github.com/AlfyH", "_blank");
+          }}
         />
         <Button
-          image={images.linkedin_unfocused}
+          image={images.linkedin_focused}
           className="other-buttons"
-          // target="_blank"
-          // rel="noopener noreferrer"
-          // href="https://github.com/AlfyH"
-          onClick={() => {}}
+          onClick={() => {
+            window.open("https://www.linkedin.com/in/alfyhushairi", "_blank");
+          }}
         />
         <PlayerBar
           min={0}
-          max={($("#inner-wrapper").width() * 2) / 3}
+          max={getScreenWidth()}
           value={value}
           onScrubStart={handleScrubStart}
           onScrubEnd={handleScrubEnd}

@@ -1,5 +1,6 @@
 {
   "name": "new-portfolio",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,8 +12,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
-    "sass": "^1.26.11",
-    "use-state-with-callback": "^2.0.3"
+    "sass": "^1.26.11"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -36,5 +36,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {}
 }

@@ -13,7 +13,7 @@ export default () => {
         playsInline
         muted
       /> */}
-      <img className="video-cover" src={video} />
+      <img className="video-cover" src={video} alt=""/>
     </div>
   );
 };

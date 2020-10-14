@@ -28,9 +28,11 @@ body {
 }
 
 .app-wrapper {
+  background-color: black;
   position: relative;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 .blur {
@@ -52,12 +54,39 @@ body {
 .inner-wrapper {
   display: flex;
   flex-direction: row;
-  // width: calc( #{$HOME_PAGE_WIDTH} + #{$ABOUT_PAGE_WIDTH} + #{$PORTFOLIO_PAGE_WIDTH} + #{$CONTACT_PAGE_WIDTH});
-  width: calc( 200vw + 908px + 960px);
+  // width: calc( 200vw + 908px + 960px);
+  width: calc( 200vw + 720px + 960px);
   transform: rotate(90deg) translateY(-100.1vh);
   transform-origin: top left;
 }
 
+.right-button {
+  width: 3vw;
+  position: absolute;
+  right: 30px;
+  top: 60%;
+  cursor: pointer;
+  opacity: 0.2;
+}
+
+.right-button:hover {
+  opacity: 1;
+}
+
 ::-webkit-scrollbar {
   display:none;
+}
+
+@media only screen and (min-width: 1440px) {
+  .right-button {
+    width: 2vw;
+  }
+}
+
+@media only screen and (min-width: 950px) {
+  .inner-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: calc( 100vw + 720px + 960px + 970px);
+  }
 }
