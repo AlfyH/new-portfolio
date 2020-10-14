@@ -1,14 +1,12 @@
 {
   "home": {
     "header": "Alfy Hushairi, design-oriented front-end developer.",
-    "description1": "",
-    "description2": "Currently working at Accedo as a Software Developer using vanilla Javascript, React and nodeJS for the development of the Channel 4 application. Specializing in the development of cross-platform, OTT video applications. A wealth of experience working on platforms such as Youview, FreeviewPlay, AmazonFire, Tizen, Playstation and Xbox. Extensive work in the integration of third party tools such as:",
+    "description1": "Currently working at Accedo as a Software Developer using vanilla Javascript, React and nodeJS for the development of the Channel 4 application. Specializing in the development of cross-platform, OTT video applications. A wealth of experience working on platforms such as Youview, FreeviewPlay, AmazonFire, Tizen, Playstation and Xbox. Extensive work in the integration of third party tools such as:",
     "descriptionList": {
       "one": "Analytic tools like Sumo Logic and AdobeAnalytics",
       "two": "Fully customised HTML5 players and third party players like Shakaplayer and DashJS",
       "three": "CMS using modern protocols"
-    },
-    "description3": ""
+    }
   },
   "contact": {
     "header1": "Alfy Hushairi.",
