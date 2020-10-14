@@ -5,14 +5,38 @@
   overflow: scroll;
 }
 
+.home-text-wrapper {
+  height: calc(90.1vh - #{$PLAYER_FURNITURE_HEIGHT});
+  padding-top: 10vh;
+  overflow: scroll;
+}
+
 .home-header {
-  margin: 13vh 15vw 3vh 10vw;
+  margin: 0 5vw 4vh 5vw;
 }
 
 .home-subtitle-one {
-  margin: 0 15vw 1.7vh 10vw;
+  margin: 0 5vw 1vh 5vw;
 }
 
 .home-subtitle-two {
-  margin: 0 15vw 20vh 10vw;
+  margin: 0 5vw  calc(#{$RABBIT_HEIGHT} + 5vh) 5vw;
+}
+
+// @media only screen and (max-width: 1440px) {
+//   .home-subtitle-two {
+//     margin: 0 15vw 27vh 10vw;
+//   }
+// }
+
+@media only screen and (min-width: 2000px) {
+  .home-text-wrapper {
+    width: 2000px;
+  }
+}
+
+@media only screen and (min-width: 950px) {
+  .page-home {
+    width: 970px;
+  }
 }
