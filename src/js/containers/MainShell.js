@@ -1,8 +1,10 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import Modal from '../components/Modal/Modal';
 import PlayerBar from '../components/PlayerBar/PlayerBar';
+import Image from "../components/Image/Image";
 import Button from '../components/Button/Button';
 import $ from 'jquery';
+import useWindowSize from '../hooks/useWindowSize';
 import { getScreenPosition, setScreenPosition, images, getScreenWidth } from "../helpers";
 
 import PlayerFurniture from '../components/PlayerFurniture/PlayerFurniture';
@@ -17,6 +19,7 @@ export default ({ children }) => {
   const [ isPlaying, setIsPlaying ] = useState(false);
   const [ isModalShowing, setIsModalShowing] = useState(false);
   const [ isAppLoaded, setIsAppLoaded ] = useState(false);
+  const size = useWindowSize();
 
   window.onload = () => {
     setIsAppLoaded(true);
@@ -41,7 +44,7 @@ export default ({ children }) => {
   }
 
   const updateBarOnScroll = useCallback(() => {
-    if ((getScreenPosition() / getScreenWidth()) >= 1 && isAppLoaded) {
+    if ((getScreenPosition() === getScreenWidth()) && isAppLoaded) {
       setIsModalShowing(true);
     }
     if (
@@ -81,7 +84,7 @@ export default ({ children }) => {
   //   console.log("screen width", getScreenWidth());
   //   console.log("bar value", value);
   //   console.log("screen percentage", `0${(getScreenPosition() / getScreenWidth()).toFixed(2)} / 01.00`.replace('.', ':'));
-  // }, [state, value]);
+  // }, [value]);
 
   const playerAction = {
     play: () => {
@@ -106,23 +109,31 @@ export default ({ children }) => {
   };
 
   return (
-    <div className="app-wrapper">
-      {isModalShowing && (
-        <Modal
-          setIsModalShowing={setIsModalShowing}
-        />
-      )}
+    <div
+      className="app-wrapper"
+      // style={{ height: size.height }}
+      // style={{ height: $(window).height() }}
+      // style={{ height: window.innerHeight }}
+    >
+      {isModalShowing && <Modal setIsModalShowing={setIsModalShowing} />}
       <div
         className={isModalShowing ? "blur" : ""}
         onClick={() => setIsModalShowing(false)}
       >
         {children}
       </div>
+      {getScreenPosition() === 0 && <Image 
+        src={images.right}
+        className={"right-button"}
+        onClick={() => {
+          setScreenPosition(window.innerWidth * 0.4, true);
+        }}
+      />}
       <PlayerFurniture>
         <Button
-          image={isPlaying ? images.pause_focused : images.play_unfocused}
+          image={getScreenPosition() === getScreenWidth() ? images.restart_focused : isPlaying ? images.pause_focused : images.play_focused}
           onClick={() =>
-            isPlaying ? playerAction.pause() : playerAction.play()
+            getScreenPosition() === getScreenWidth() ? setScreenPosition(0, true) : isPlaying ? playerAction.pause() : playerAction.play()
           }
         />
         <Button

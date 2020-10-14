@@ -1,4 +1,5 @@
 import React from 'react';
+import string from "../../../configs/strings.json";
 import Button from '../Button/Button';
 import Text from '../Text/Text';
 import images from '../../helpers/importImages';
@@ -17,16 +18,16 @@ export default ({ setIsModalShowing }) => {
           className="button-close-image"
         />
         <Text
-          text={"Alfy Hushairi."}
+          text={string.contact.header1}
           className={"font-overlay-title overlay-title"}
         />
-        <Text text={"A Web Developer"} className={"font-overlay-title"} />
+        <Text text={string.contact.header2} className={"font-overlay-title"} />
         <Text
-          text={"working in London, UK."}
+          text={string.contact.header3}
           className={"font-overlay-title"}
         />
         <Text
-          text={`me@alfyhushairi.com`}
+          text={string.contact.email}
           className={"font-overlay-subtitle overlay-subtitle"}
         />
       </div>
